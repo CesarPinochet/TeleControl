@@ -284,19 +284,23 @@ if __name__ == "__main__":
     context = zmq.Context()
     command_socket = context.socket(zmq.SUB)
     command_socket.bind('tcp://*:5556')
-    command_socket.setsockopt(zmq.SUBSCRIBE,"camara_settings")
-    command_socket.setsockopt(zmq.SUBSCRIBE, "start")
-    command_socket.setsockopt(zmq.SUBSCRIBE, "stop")
+    #command_socket.setsockopt(zmq.SUBSCRIBE,b'camara_settings')
+    #command_socket.setsockopt(zmq.SUBSCRIBE, b'start')
+    #command_socket.setsockopt(zmq.SUBSCRIBE, b'stop')
+    command_socket.setsockopt(zmq.SUBSCRIBE, b'')
     while True:
         # check for commands from UI
+        print("Ready to receive command")
         topic_cmd = command_socket.recv_multipart()
         topic = topic_cmd[0]
+        print("Command received",topic)
         if topic == 'camara_settings':
             str_commands = topic_cmd[1]
             ui_commands = json.loads(str_commands)
             exposure = ui_commands['exposure']
             gain = ui_commands['gain']
             threshold = ui_commands['threshold']
+            print("Settings = ",exposure,gain,threshold)
         elif topic == 'stop':
             running = False
             command_thread.join()
