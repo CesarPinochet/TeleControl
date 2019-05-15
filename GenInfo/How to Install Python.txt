@@ -1,0 +1,14 @@
+Installing Python environment from Scratch
+This helps if you have your code in GIT.
+
+To install the environment follow the  steps below: 
+
+Install Python 2.7
+Install Python 3.x latest version
+Install PyCharm
+Install  Git
+Create a Project in PyCharm
+Create a GIT Repository
+Clone the repository i IT into the new repository in your PC
+Install all paclages in your virtual Environment
+Re-compile your application

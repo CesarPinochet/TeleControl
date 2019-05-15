@@ -1,0 +1,1351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Cesar Pinochet</author>
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>640</width>
+    <height>550</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <weight>50</weight>
+    <bold>false</bold>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Telescope Control System</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="Icons/Icons.qrc">
+    <normaloff>:/Icons/mono.png</normaloff>:/Icons/mono.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout_TelMovement">
+      <item>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="2">
+         <widget class="QPushButton" name="pushButton_Speed2">
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="pushButton_LeftArrow">
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="Icons/Icons.qrc">
+            <normaloff>:/Icons/Left.png</normaloff>:/Icons/Left.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QPushButton" name="pushButton_RightArrow">
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="Icons/Icons.qrc">
+            <normaloff>:/Icons/Right.png</normaloff>:/Icons/Right.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="pushButton_Home">
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Home</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPushButton" name="pushButton_DownArrow">
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="Icons/Icons.qrc">
+            <normaloff>:/Icons/Down.png</normaloff>:/Icons/Down.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QPushButton" name="pushButton_Speed4">
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>4</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QPushButton" name="pushButton_Speed1">
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QPushButton" name="pushButton_UpArrow">
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="Icons/Icons.qrc">
+            <normaloff>:/Icons/Up.png</normaloff>:/Icons/Up.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="pushButton_Speed3">
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>3</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QPushButton" name="pushButton_Park">
+            <property name="text">
+             <string>Park</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_Sleep">
+            <property name="text">
+             <string>Sleep</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_StopGoTo">
+          <property name="text">
+           <string>Stop GoTo</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="4">
+     <widget class="Line" name="line_5">
+      <property name="lineWidth">
+       <number>3</number>
+      </property>
+      <property name="midLineWidth">
+       <number>1</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="Line" name="line_4">
+      <property name="lineWidth">
+       <number>3</number>
+      </property>
+      <property name="midLineWidth">
+       <number>1</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2" colspan="2">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="5" column="0">
+         <widget class="QSpinBox" name="spinBox_setSiteLongitudeDegrees">
+          <property name="inputMethodHints">
+           <set>Qt::ImhDigitsOnly|Qt::ImhFormattedNumbersOnly</set>
+          </property>
+          <property name="suffix">
+           <string> Deg</string>
+          </property>
+          <property name="maximum">
+           <number>359</number>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_SystemTime">
+          <property name="text">
+           <string>Local time</string>
+          </property>
+          <property name="buddy">
+           <cstring>timeEdit_SetLocalTime</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QTimeEdit" name="timeEdit_SetLocalTime">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="specialValueText">
+           <string/>
+          </property>
+          <property name="date">
+           <date>
+            <year>2000</year>
+            <month>1</month>
+            <day>1</day>
+           </date>
+          </property>
+          <property name="time">
+           <time>
+            <hour>18</hour>
+            <minute>59</minute>
+            <second>59</second>
+           </time>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QDateEdit" name="dateEdit_SetLocalDate">
+          <property name="dateTime">
+           <datetime>
+            <hour>3</hour>
+            <minute>0</minute>
+            <second>0</second>
+            <year>2000</year>
+            <month>1</month>
+            <day>7</day>
+           </datetime>
+          </property>
+          <property name="time">
+           <time>
+            <hour>3</hour>
+            <minute>0</minute>
+            <second>0</second>
+           </time>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="label_SetTelSiteLatitude">
+          <property name="text">
+           <string>Site Latitude</string>
+          </property>
+          <property name="buddy">
+           <cstring>spinBox_setSiteLatitudeDegrees</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QSpinBox" name="spinBox_setSiteLatitudeMinutes">
+          <property name="suffix">
+           <string> Min</string>
+          </property>
+          <property name="maximum">
+           <number>59</number>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="lineEdit_SetLocation"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_SystemDate">
+          <property name="text">
+           <string>Local Date</string>
+          </property>
+          <property name="buddy">
+           <cstring>dateEdit_SetLocalDate</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QSpinBox" name="spinBox_setSiteLatitudeDegrees">
+          <property name="suffix">
+           <string> Deg</string>
+          </property>
+          <property name="minimum">
+           <number>-180</number>
+          </property>
+          <property name="maximum">
+           <number>180</number>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QSpinBox" name="spinBox_setSiteLongitudMinutes">
+          <property name="suffix">
+           <string> Min</string>
+          </property>
+          <property name="maximum">
+           <number>59</number>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_SetLocation">
+          <property name="text">
+           <string>Location Name</string>
+          </property>
+          <property name="buddy">
+           <cstring>lineEdit_SetLocation</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QComboBox" name="comboBox_TrackingMode">
+          <item>
+           <property name="text">
+            <string>AltAz Mode</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Land Mode</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Polar Mode</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_TelTrackingMode">
+          <property name="text">
+           <string>Mode</string>
+          </property>
+          <property name="buddy">
+           <cstring>comboBox_TrackingMode</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_SetTelSiteLongitude">
+          <property name="text">
+           <string>Site Longitud</string>
+          </property>
+          <property name="buddy">
+           <cstring>spinBox_setSiteLongitudeDegrees</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2">
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QPushButton" name="pushButton_GetTimeDate">
+          <property name="text">
+           <string>Get Time&amp;Date</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_SetTelescopeData">
+          <property name="text">
+           <string>Set</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="2">
+     <widget class="Line" name="line_2">
+      <property name="lineWidth">
+       <number>3</number>
+      </property>
+      <property name="midLineWidth">
+       <number>1</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="Line" name="line">
+      <property name="lineWidth">
+       <number>3</number>
+      </property>
+      <property name="midLineWidth">
+       <number>1</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3" colspan="3">
+     <widget class="Line" name="line_3">
+      <property name="lineWidth">
+       <number>3</number>
+      </property>
+      <property name="midLineWidth">
+       <number>1</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <layout class="QGridLayout" name="gridLayout_CamaraViewer">
+      <item row="2" column="0" colspan="2">
+       <widget class="QLineEdit" name="lineEdit_FileName">
+        <property name="text">
+         <string>File Name</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_VideoCapture">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Video Capture</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QSpinBox" name="spinBox_Gain">
+        <property name="maximum">
+         <number>255</number>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QDoubleSpinBox" name="doubleSpinBox_Exposure">
+        <property name="suffix">
+         <string> seg</string>
+        </property>
+        <property name="minimum">
+         <double>0.500000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>300.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.500000000000000</double>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0" colspan="2">
+       <widget class="Line" name="line_6">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QSpinBox" name="spinBox_Threshold">
+        <property name="maximum">
+         <number>255</number>
+        </property>
+        <property name="value">
+         <number>50</number>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="0">
+       <spacer name="verticalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_Gain">
+        <property name="text">
+         <string>Gain</string>
+        </property>
+        <property name="buddy">
+         <cstring>spinBox_Gain</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_Threshold">
+        <property name="text">
+         <string>Threshold</string>
+        </property>
+        <property name="buddy">
+         <cstring>spinBox_Threshold</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QCheckBox" name="checkBox_VideoToFile">
+        <property name="text">
+         <string>Copy to  File</string>
+        </property>
+        <property name="tristate">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_Exposure">
+        <property name="text">
+         <string>Exposure</string>
+        </property>
+        <property name="buddy">
+         <cstring>doubleSpinBox_Exposure</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="QLineEdit" name="lineEdit_Avg_Brightness"/>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="label_AvgBrightness">
+        <property name="text">
+         <string>Avg. Brightness</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_Avg_Brightness</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="QLineEdit" name="lineEdit_Frame_Captured"/>
+      </item>
+      <item row="10" column="1">
+       <widget class="QLineEdit" name="lineEdit_pct_GoodFrames"/>
+      </item>
+      <item row="9" column="0">
+       <widget class="QLabel" name="label_FrameCaptured">
+        <property name="text">
+         <string>Frame Captured</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_Frame_Captured</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="0">
+       <widget class="QLabel" name="label_pctGoodFrames">
+        <property name="text">
+         <string>% Good Frames</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_pct_GoodFrames</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="pushButton_Activate_Video">
+        <property name="text">
+         <string>Activate Video</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="0" colspan="3">
+     <layout class="QGridLayout" name="gridLayout_TescopeInfo">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+      <item row="5" column="1">
+       <widget class="QLabel" name="label_TelSiteLatitude">
+        <property name="text">
+         <string>Site Latitude</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_SiteLatitude</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_TelescopeInfo">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Telescope Info</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="0">
+       <widget class="QLineEdit" name="lineEdit_TelRA"/>
+      </item>
+      <item row="10" column="2">
+       <widget class="QLineEdit" name="lineEdit_TelSlewRate"/>
+      </item>
+      <item row="8" column="1">
+       <widget class="QLabel" name="label_TelDec">
+        <property name="text">
+         <string>DEC</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_TelDEC</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="2">
+       <widget class="QLabel" name="label_TelSlewRate">
+        <property name="text">
+         <string>Slew Rate</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_TelSlewRate</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="0">
+       <widget class="QLabel" name="label_TelAltitud">
+        <property name="text">
+         <string>Altitud</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_TelAltitud</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="0">
+       <widget class="QLineEdit" name="lineEdit_TelAltitud"/>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLabel" name="label_TelTime">
+        <property name="text">
+         <string>Time</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_TelTime</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+       <widget class="QLineEdit" name="lineEdit_TelAlignment"/>
+      </item>
+      <item row="3" column="2">
+       <widget class="QLabel" name="label_TelAligment">
+        <property name="text">
+         <string>Aligment</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_TelAlignment</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="0">
+       <widget class="QPushButton" name="pushButton_GetTel_Info">
+        <property name="text">
+         <string>Get Telescope Info</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="label_TelRA">
+        <property name="text">
+         <string>RA</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_TelRA</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="2">
+       <widget class="QLineEdit" name="lineEdit_SiteLongitud"/>
+      </item>
+      <item row="10" column="1">
+       <widget class="QLineEdit" name="lineEdit_TelDEC"/>
+      </item>
+      <item row="11" column="1">
+       <widget class="QLabel" name="label_TelAzimuth">
+        <property name="text">
+         <string>Azimuth</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_TelAzimuth</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="2">
+       <widget class="QLabel" name="label_TelSiteLongitude">
+        <property name="text">
+         <string>Site Longitud</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_SiteLongitud</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="1">
+       <widget class="QLineEdit" name="lineEdit_TelAzimuth"/>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLineEdit" name="lineEdit_SiteLatitude"/>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLineEdit" name="lineEdit_TelSiteName"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_TelSiteName">
+        <property name="text">
+         <string>Site Name</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_TelSiteName</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLineEdit" name="lineEdit_TelDate"/>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="lineEdit_TelTime"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_TelDate">
+        <property name="text">
+         <string>Date</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_TelDate</cstring>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <tabstops>
+  <tabstop>pushButton_GetTimeDate</tabstop>
+  <tabstop>comboBox_TrackingMode</tabstop>
+  <tabstop>spinBox_setSiteLongitudeDegrees</tabstop>
+  <tabstop>spinBox_setSiteLongitudMinutes</tabstop>
+  <tabstop>spinBox_setSiteLatitudeDegrees</tabstop>
+  <tabstop>spinBox_setSiteLatitudeMinutes</tabstop>
+  <tabstop>pushButton_SetTelescopeData</tabstop>
+  <tabstop>pushButton_GetTel_Info</tabstop>
+  <tabstop>pushButton_Park</tabstop>
+  <tabstop>pushButton_UpArrow</tabstop>
+  <tabstop>pushButton_DownArrow</tabstop>
+  <tabstop>pushButton_LeftArrow</tabstop>
+  <tabstop>pushButton_Speed4</tabstop>
+  <tabstop>pushButton_RightArrow</tabstop>
+  <tabstop>pushButton_Home</tabstop>
+  <tabstop>lineEdit_TelSiteName</tabstop>
+  <tabstop>pushButton_Speed3</tabstop>
+  <tabstop>pushButton_StopGoTo</tabstop>
+  <tabstop>lineEdit_TelDEC</tabstop>
+  <tabstop>lineEdit_TelSlewRate</tabstop>
+  <tabstop>lineEdit_TelRA</tabstop>
+  <tabstop>lineEdit_TelAltitud</tabstop>
+  <tabstop>lineEdit_TelAzimuth</tabstop>
+  <tabstop>lineEdit_TelAlignment</tabstop>
+  <tabstop>pushButton_Speed1</tabstop>
+  <tabstop>lineEdit_SiteLatitude</tabstop>
+  <tabstop>lineEdit_SiteLongitud</tabstop>
+  <tabstop>pushButton_Sleep</tabstop>
+  <tabstop>lineEdit_SetLocation</tabstop>
+  <tabstop>dateEdit_SetLocalDate</tabstop>
+  <tabstop>timeEdit_SetLocalTime</tabstop>
+  <tabstop>pushButton_Speed2</tabstop>
+ </tabstops>
+ <resources>
+  <include location="Icons/Icons.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>pushButton_GetTimeDate</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>getTimeDate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>266</x>
+     <y>229</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_SetTelescopeData</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>SetTelescopeData()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>347</x>
+     <y>229</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_GetTel_Info</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>GetTelescopeInfo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>107</x>
+     <y>519</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Park</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>park()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>88</x>
+     <y>168</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_StopGoTo</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>halt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>172</x>
+     <y>198</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_UpArrow</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>move_up()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>116</x>
+     <y>48</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_UpArrow</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>stop_up()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>116</x>
+     <y>48</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_LeftArrow</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>move_left()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>60</x>
+     <y>92</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_LeftArrow</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>stop_left()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>60</x>
+     <y>92</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_RightArrow</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>move_right()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>172</x>
+     <y>92</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_RightArrow</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>stop_right()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>172</x>
+     <y>92</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_DownArrow</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>move_down()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>116</x>
+     <y>136</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_DownArrow</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>stop_down()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>116</x>
+     <y>136</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Speed1</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>speed1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>60</x>
+     <y>48</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Speed2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>speed2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>172</x>
+     <y>48</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Speed3</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>speed3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>60</x>
+     <y>136</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Speed4</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>speed4()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>172</x>
+     <y>136</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Sleep</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>TelSleep()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>171</x>
+     <y>168</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Home</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>go_home()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>87</x>
+     <y>78</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>440</x>
+     <y>401</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_TrackingMode</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_mode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>300</x>
+     <y>102</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>385</x>
+     <y>337</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Activate_Video</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>ActivateVideo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>486</x>
+     <y>38</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>418</x>
+     <y>278</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_VideoToFile</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>copyToFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>596</x>
+     <y>43</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>495</x>
+     <y>287</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>doubleSpinBox_Exposure</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_exposure()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>573</x>
+     <y>95</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>509</x>
+     <y>343</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox_Gain</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_gain()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>557</x>
+     <y>123</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>465</x>
+     <y>343</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox_Threshold</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_threshold()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>583</x>
+     <y>152</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>520</x>
+     <y>443</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>ActivateVideo()</slot>
+  <slot>getTimeDate()</slot>
+  <slot>SetTelescopeData()</slot>
+  <slot>GetTelescopeInfo()</slot>
+  <slot>park()</slot>
+  <slot>halt()</slot>
+  <slot>move_up()</slot>
+  <slot>stop_up()</slot>
+  <slot>move_left()</slot>
+  <slot>stop_left()</slot>
+  <slot>move_right()</slot>
+  <slot>stop_right()</slot>
+  <slot>move_down()</slot>
+  <slot>stop_down()</slot>
+  <slot>speed1()</slot>
+  <slot>speed2()</slot>
+  <slot>speed3()</slot>
+  <slot>speed4()</slot>
+  <slot>alignTelescope()</slot>
+  <slot>TelSleep()</slot>
+  <slot>go_home()</slot>
+  <slot>set_mode()</slot>
+  <slot>copyToFile()</slot>
+  <slot>set_exposure()</slot>
+  <slot>set_gain()</slot>
+  <slot>set_threshold()</slot>
+ </slots>
+</ui>

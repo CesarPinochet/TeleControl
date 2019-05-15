@@ -1,0 +1,124 @@
+20/03/19 Stellarium socket server works well with stellarium 0.17.0 64 bits and 32 bits but not with the newer versions
+I have no idea why
+I un-installed version 18 and installed version 17
+
+21/03/19 - i discovered stellrium socket server was not in use, i changed the logic and now there is only
+one tcp server  the telescope socket server
+
+21/03/19 Stellarium message packet
+
+/*
+Author and Copyright of this file and of the stellarium telescope library:
+Johannes Gajdosik, 2006
+*/
+
+Stellarium Telescope Protocol version 1.0
+
+The Stellarium Telescope Protocol works on top of TCP/IP.
+The client is the stellarium program (or any similar program),
+the server is called "telescope server" and controls the telescope.
+Depending on the implementation the server may handle one or many
+simultaneous clients. The reference server implementation accepts
+an unlimited number of simultaneous clients.
+
+The protocol is message based: both server and client may
+spontaneousely send messages as often as they want.
+When the server looses control of the telescope he should
+actively close the connection to all clients.
+
+The first two bytes of any message describes the total
+length of that message in bytes (including the first 2 bytes).
+
+The next 2 bytes of any message describe the type of this message.
+
+
+The values are transmitted in little-endian format
+
+The byte order for all kind of integers is always
+"least significiant byte first".
+
+-----------------------
+server->client:
+MessageCurrentPosition (type = 0):
+
+LENGTH (2 bytes,integer): length of the message
+TYPE   (2 bytes,integer): 0
+TIME   (8 bytes,integer): current time on the server computer in microseconds
+           since 1970.01.01 UT. Currently unused.
+RA     (4 bytes,unsigned integer): right ascension of the telescope (J2000)
+           a value of 0x100000000 = 0x0 means 24h=0h,
+           a value of 0x80000000 means 12h
+DEC    (4 bytes,signed integer): declination of the telescope (J2000)
+           a value of -0x40000000 means -90degrees,
+           a value of 0x0 means 0degrees,
+           a value of 0x40000000 means 90degrees
+STATUS (4 bytes,signed integer): status of the telescope, currently unused.
+           status=0 means ok, status<0 means some error
+
+
+---------------------
+
+client->server:
+MessageGoto (type =0)
+LENGTH (2 bytes,integer): length of the message
+TYPE   (2 bytes,integer): 0
+TIME   (8 bytes,integer): current time on the client computer in microseconds
+                  since 1970.01.01 UT. Currently unused.
+RA     (4 bytes,unsigned integer): right ascension of the telescope (J2000)
+           a value of 0x100000000 = 0x0 means 24h=0h,
+           a value of 0x80000000 means 12h
+DEC    (4 bytes,signed integer): declination of the telescope (J2000)
+           a value of -0x40000000 means -90degrees,
+           a value of 0x0 means 0degrees,
+           a value of 0x40000000 means 90degrees
+
+
+####################################################################################
+##########  ALIGNEMENT IS MANDATORY BEFORE DO A SLEW USING STELLARUM  ##############
+####################################################################################
+OR ALL OBJECTS WILL BE BELOW HORIZON FOR THE TELESCOPE AND IT WILL NOT MOVE
+
+
+################################################################
+Aligment in SOuther Hemisphere
+################################################################
+Even if you are in the southern hemisphere, the Alt/Az alignment
+ is the -same- as the northern hemisphere.
+Place the ETX on a level surface.
+Point the control panel West.
+Unlock and spin the barrel anti-clockwise until it stops.
+Turn it about 110 degrees clockwise the Fork with the numbered
+scale is over the control panel.  That should
+Point the barrel North (yes, norte'), level to the ground.
+
+
+#################################################################
+QtLayouts
+#################################################################
+https://www.tutorialspoint.com/pyqt/pyqt_layout_management.htm
+
+http://doc.qt.io/archives/qt-4.8/qwidget.html
+
+How create code for PyQt Design
+C:\Python27\Lib\site-packages\PyQt4\pyuic4 -x C:\Python27\Projects\TelescopeClient-v2.ui -o C:\Python27\Projects\TelescopeClient-v2.py
+pyuic4 -x Test.ui Test.py
+C:\PythonProjects_Git\TelescopeControlSystem\venv\Lib\site-packages\PyQt4\pyuic4 C:\PythonProjects_Git\TelescopeControlSystem\SouceCode\UI_Client\TelescopeUserInterface.ui -o C:\PythonProjects_Git\TelescopeControlSystem\SouceCode\UI_Client\ui_TelControlWindow.py
+
+
+Compile resource file
+C:\Python27\Lib\site-packages\PyQt4\pyrcc4 -o C:\Python27\Projects\Cesar_rc.py C:\Python27\Projects\Cesar.qrc
+
+################################################################################################################
+Install Opencv in Windows    Download latest OpenCV release from sourceforge site and double-click to extract it.
+################################################################################################################
+    Goto opencv/build/python/2.7 folder.
+
+    Copy cv2.pyd to C:/Python27/lib/site-packeges.
+
+    Open Python IDLE and type following codes in Python terminal.
+
+    >>> import cv2
+    >>> print cv2.__version__
+
+If the results are printed out without any errors, congratulations !!! You have installed OpenCV-Python successfully.
+#####################################################################################################################
