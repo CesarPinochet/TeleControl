@@ -68,7 +68,7 @@ def image_proc(img):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     return gray
 
-def lx(exp,gain,thr):
+def lx(exp=0.05,gain=0,thr=70):
     global running
     #------------------- Prepare streaming-------------------------
     context = zmq.Context()
@@ -259,67 +259,56 @@ def lx(exp,gain,thr):
 
 
 
-if __name__ == "__main__":
-    global running
-    exposure = float(sys.argv[1])
-    gain = float(sys.argv[2])
-    if len(sys.argv) <= 3:
-        thr=70
-    else:
-        thr=int(sys.argv[3])
-    fps = exposure/2
-    running = True
-    # create a thread and run lx in the thread
-    # open a socket to receive lx parameters from remote client
-    # put the socket in a loop and receive parameters or a finish commad
-    lx(exposure, gain,thr)
-
-
-# init = initial_setup
-# ui_IP_Address = init.ui_IP_Address
-#
 # if __name__ == "__main__":
-#     # exposure = float(sys.argv[1])
-#     # gain = float(sys.argv[2])
-#     # if len(sys.argv) <= 3:
-#     #     thr=70
-#     # else:
-#     #     thr=int(sys.argv[3])
-#
+#     global running
+#     exposure = float(sys.argv[1])
+#     gain = float(sys.argv[2])
+#     if len(sys.argv) <= 3:
+#         thr=70
+#     else:
+#         thr=int(sys.argv[3])
+#     fps = exposure/2
 #     running = True
 #     # create a thread and run lx in the thread
 #     # open a socket to receive lx parameters from remote client
 #     # put the socket in a loop and receive parameters or a finish commad
-#
-#     context = zmq.Context()
-#     command_socket = context.socket(zmq.SUB)
-#     command_socket.bind('tcp://*:5556')
-#     # command_socket.connect("tcp://%s:5556" % ui_IP_Address)
-#     command_socket.setsockopt(zmq.SUBSCRIBE,"camara_settings")
-#     command_socket.setsockopt(zmq.SUBSCRIBE, "start")
-#     command_socket.setsockopt(zmq.SUBSCRIBE, "stop")
-#     while True:
-#         # check for commands from UI
-#         topic_cmd = command_socket.recv_multipart()
-#         topic = topic_cmd[0]
-#         if topic == 'camara_settings':
-#             str_commands = topic_cmd[1]
-#             ui_commands = json.loads(str_commands)
-#             exposure = ui_commands['exposure']
-#             gain = ui_commands['gain']
-#             threshold = ui_commands['threshold']
-#         elif topic == 'stop':
-#             running = False
-#             command_thread.join()
-#         elif topic == 'start':
-#             running = True
-#
-#             str_commands = topic_cmd[1]
-#             ui_commands = json.loads(str_commands)
-#             exposure = float(ui_commands['exposure'])
-#             gain = int(ui_commands['gain'])
-#             threshold = int(ui_commands['threshold'])
-#
-#             command_thread = threading.Thread(target=lx, args=(exposure, gain, threshold))
-#             command_thread.start()
-#
+#     lx(exposure, gain,thr)
+
+
+if __name__ == "__main__":
+    running = True
+    # create a thread and run lx in the thread
+    # open a socket to receive lx parameters from remote client
+    # put the socket in a loop and receive parameters or a finish commad
+
+    context = zmq.Context()
+    command_socket = context.socket(zmq.SUB)
+    command_socket.bind('tcp://*:5556')
+    command_socket.setsockopt(zmq.SUBSCRIBE,"camara_settings")
+    command_socket.setsockopt(zmq.SUBSCRIBE, "start")
+    command_socket.setsockopt(zmq.SUBSCRIBE, "stop")
+    while True:
+        # check for commands from UI
+        topic_cmd = command_socket.recv_multipart()
+        topic = topic_cmd[0]
+        if topic == 'camara_settings':
+            str_commands = topic_cmd[1]
+            ui_commands = json.loads(str_commands)
+            exposure = ui_commands['exposure']
+            gain = ui_commands['gain']
+            threshold = ui_commands['threshold']
+        elif topic == 'stop':
+            running = False
+            command_thread.join()
+        elif topic == 'start':
+            running = True
+
+            str_commands = topic_cmd[1]
+            ui_commands = json.loads(str_commands)
+            exposure = float(ui_commands['exposure'])
+            gain = int(ui_commands['gain'])
+            threshold = int(ui_commands['threshold'])
+
+            command_thread = threading.Thread(target=lx, args=(exposure, gain, threshold))
+            command_thread.start()
+
