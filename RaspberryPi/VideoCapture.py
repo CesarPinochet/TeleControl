@@ -36,6 +36,8 @@ import re
 import base64
 import zmq
 from struct import *
+import json
+import threading
 
 global running
 running = False
@@ -290,29 +292,31 @@ if __name__ == "__main__":
     command_socket.setsockopt(zmq.SUBSCRIBE, b'')
     while True:
         # check for commands from UI
-        print("Ready to receive command")
         topic_cmd = command_socket.recv_multipart()
-        topic = topic_cmd[0]
+        topic = topic_cmd[0].decode('ascii')
         print("Command received",topic)
         if topic == 'camara_settings':
-            str_commands = topic_cmd[1]
+            str_commands = topic_cmd[1].decode('ascii')
+            print("Str_Commnads = ",str_commands)
             ui_commands = json.loads(str_commands)
             exposure = ui_commands['exposure']
             gain = ui_commands['gain']
             threshold = ui_commands['threshold']
             print("Settings = ",exposure,gain,threshold)
         elif topic == 'stop':
+            print("Stopped")
             running = False
             command_thread.join()
         elif topic == 'start':
             running = True
-
-            str_commands = topic_cmd[1]
+            print("Started")
+            str_commands = topic_cmd[1].decode('ascii')
             ui_commands = json.loads(str_commands)
             exposure = float(ui_commands['exposure'])
             gain = int(ui_commands['gain'])
             threshold = int(ui_commands['threshold'])
 
+            print("Settings = ",exposure,gain,threshold)
             command_thread = threading.Thread(target=lx, args=(exposure, gain, threshold))
             command_thread.start()
 
