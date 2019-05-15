@@ -122,3 +122,15 @@ Install Opencv in Windows    Download latest OpenCV release from sourceforge sit
 
 If the results are printed out without any errors, congratulations !!! You have installed OpenCV-Python successfully.
 #####################################################################################################################
+
+Installing PyQt4 in PyCharm gave me error when I created the second project
+The first project repository was corrupted and I have to create a secong
+
+Instead of install PyQt4 I installed PyQt4-windows-whl package
+and I have to copy from my old project theese 3 files:
+
+/venv/lib/site-packages/sip.pyd
+/venv/lib/site-packages/sipconfig.py
+/venv/lib/site-packages/sipdistutils.py
+
+For some reason they are not installed when the PyQt4-windows-whl package is installed
