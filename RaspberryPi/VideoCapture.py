@@ -311,12 +311,13 @@ if __name__ == "__main__":
             running = True
             print("Started")
             str_commands = topic_cmd[1].decode('ascii')
+            print("Str_Commnads rx ",str_commands)
             ui_commands = json.loads(str_commands)
             exposure = float(ui_commands['exposure'])
             gain = int(ui_commands['gain'])
             threshold = int(ui_commands['threshold'])
 
-            print("Settings = ",exposure,gain,threshold)
+            print("Settings to lx = ",exposure,gain,threshold)
             command_thread = threading.Thread(target=lx, args=(exposure, gain, threshold))
             command_thread.start()
 
