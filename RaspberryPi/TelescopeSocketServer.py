@@ -7,6 +7,7 @@ import threading
 from TelescopeSerialChannelClass import *
 # from coords import *
 from SocketServerFunctions import *
+from configVariables import my_IpAddress
 
 port_error=0
 
@@ -55,7 +56,9 @@ try:
     # In this case, the address is localhost, referring to the current server, and the port number is 10000.
     # Bind the socket to the port
     # Never bind a socket to localhost unless all modules are in the same machine
-    server_address = ('192.168.11.252', 10000)
+    my_Address = my_IpAddress()
+    #server_address = ('192.168.11.252', 10000)
+    server_address = (my_Address, 10000)
 
 except socket.error as err:
     print "SERVER: socket creation failed with error %s" %(err)
