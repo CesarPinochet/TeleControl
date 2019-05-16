@@ -32,10 +32,10 @@ class TelControlWindow(QMainWindow, Ui_MainWindow):
         # --------------------------------------------------------------
         init = cfgv.initialSetUp()
         # raspberryPiAddr = '192.168.11.252'
-        raspberryPiAddr = init.raspberryPiAddr
+        self.raspberryPiAddr = init.raspberryPiAddr
         context = zmq.Context()
         self.commands_socket = context.socket(zmq.PUB)
-        self.commands_socket.connect("tcp://%s:5556" % raspberryPiAddr)
+        self.commands_socket.connect("tcp://%s:5556" % self.raspberryPiAddr)
         # --------------------------------------------------------------
 
 # The closseEvent triggers when user try to the window
@@ -167,21 +167,21 @@ class TelControlWindow(QMainWindow, Ui_MainWindow):
         '''Open a thread to connect to raspberryPi and send a command to adtivate video streamming.'''
         global running
 
-        init = cfgv.initialSetUp()
-        # raspberryPiAddr = '192.168.11.252'
-        raspberryPiAddr = init.raspberryPiAddr
+        # init = cfgv.initialSetUp()
+        # # raspberryPiAddr = '192.168.11.252'
+        # raspberryPiAddr = init.raspberryPiAddr
 
         if self.pushButton_Activate_Video.isChecked():
             running = True
 
-            streming_thread = threading.Thread(target=streamVideo, args=(raspberryPiAddr,))
-            updateVideoCaptureStatus_thread = threading.Thread(target=self.updateVideoCapStatus, args=(raspberryPiAddr,))
+            streming_thread = threading.Thread(target=streamVideo, args=(self.raspberryPiAddr,))
+            updateVideoCaptureStatus_thread = threading.Thread(target=self.updateVideoCapStatus, args=(self.raspberryPiAddr,))
             streming_thread.start()
             updateVideoCaptureStatus_thread.start()
             # --------------------------------------------------------------
-            context = zmq.Context()
-            self.commands_socket = context.socket(zmq.PUB)
-            self.commands_socket.connect("tcp://%s:5556" % raspberryPiAddr)
+            # context = zmq.Context()
+            # self.commands_socket = context.socket(zmq.PUB)
+            # self.commands_socket.connect("tcp://%s:5556" % raspberryPiAddr)
             topic = "start"
             self.commands_socket.send_string(topic, zmq.SNDMORE)
             status = {"exposure": self.doubleSpinBox_Exposure.value(),"gain":self.spinBox_Gain.value(),"threshold":self.spinBox_Threshold.value()}
@@ -191,6 +191,8 @@ class TelControlWindow(QMainWindow, Ui_MainWindow):
 
         else:
             running = False
+            topic = "stop"
+            self.commands_socket.send_string(topic)
             self.pushButton_Activate_Video.setText('Stopped...')
         return
 
