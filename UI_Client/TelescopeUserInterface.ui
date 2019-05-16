@@ -217,6 +217,13 @@
          </widget>
         </item>
         <item>
+         <widget class="QPushButton" name="pushButton_AlignTelescope">
+          <property name="text">
+           <string>Init Alignment</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <spacer name="verticalSpacer">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
@@ -1316,6 +1323,22 @@
     <hint type="destinationlabel">
      <x>520</x>
      <y>443</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_AlignTelescope</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>alignTelescope()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>52</x>
+     <y>218</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>37</x>
+     <y>261</y>
     </hint>
    </hints>
   </connection>
