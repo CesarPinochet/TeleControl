@@ -306,7 +306,9 @@ if __name__ == "__main__":
         elif topic == 'stop':
             print("Stopped")
             running = False
+            print("ready wait for tread to join")
             command_thread.join()
+            print("tread joined")
         elif topic == 'start':
             running = True
             print("Started")
