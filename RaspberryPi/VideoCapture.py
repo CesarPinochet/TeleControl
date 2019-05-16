@@ -314,7 +314,7 @@ if __name__ == "__main__":
             print("Str_Commnads = ",str_commands)
             ui_commands = json.loads(str_commands)
             exposure = ui_commands['exposure']
-            gain_ = ui_commands['gain']
+            gain = ui_commands['gain']
             threshold = ui_commands['threshold']
             print("Settings = ",exposure,gain,threshold)
         elif topic == 'stop':
