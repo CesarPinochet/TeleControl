@@ -78,6 +78,7 @@ def lx():
     global gain
     global thr
 
+
     exp = exposure
     thr = threshold
 
