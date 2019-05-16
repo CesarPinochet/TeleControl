@@ -178,7 +178,7 @@ def lx():
     good_frame = 0.0
     bad_frame = 0
 
-    while (running):
+    while running:
         #Before activate long exposure I have to set Auto exposure off
         # and  other parameters also off
         old = 0
@@ -257,7 +257,11 @@ def lx():
             cap.set(cv2.CAP_PROP_BRIGHTNESS,good_brt+1)
             good_brt+=1
             bad_frame -= 1
-
+# -------------------------  Send  one more image to allow UI close the windows ------------------------
+        topic = "frame"
+        footage_socket.send_string(topic, zmq.SNDMORE)
+        footage_socket.send(jpg_as_text)
+# -------------------------  Streaming ------------------------
 
     #Stop Exposure
 
