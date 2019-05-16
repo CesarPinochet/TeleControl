@@ -74,13 +74,12 @@ def image_proc(img):
 def lx():
     global running
 
-    global exp
+    global exposure
     global gain
-    global thr
-
+    global threshold
 
     exp = exposure
-    thr = threshold
+
 
     #------------------- Prepare streaming-------------------------
     context = zmq.Context()
@@ -88,7 +87,7 @@ def lx():
     footage_socket.bind('tcp://*:5555')
     #--------------------------------------------------------------
     
-    THRESHOLD = thr
+    # THRESHOLD = thr
 
     status,ser = OpenSerialPort(115200)
     #print ("Opening serial port: ","/dev/ttyUSB0")
@@ -206,7 +205,7 @@ def lx():
                     brightImage = frame
                     g_brightImage=g_image
                     old = new
-                    if old>THRESHOLD:
+                    if old>threshold:
                         good_frame = good_frame+1.0
                         break
                     
@@ -214,18 +213,18 @@ def lx():
         
         end = time.time()
         print("Duration",end-begin, "Shutter Speed=",end1-begin)
-        if old>THRESHOLD+5:
+        if old>threshold+5:
             # Display brightest image
             print("Display Image",n+1,"Light Level ",int(old),"Brightness",brt)
 #            cv2.imshow("Local",brightImage)
-            if old>THRESHOLD:
+            if old>threshold:
                 #brt=brt*0.95
                 good_brt=brt
                 brt-=1
                 cap.set(cv2.CAP_PROP_BRIGHTNESS,brt)
             else:
                 #brt=brt*1.05
-                if old<THRESHOLD:
+                if old<threshold:
                     brt+=1
                     cap.set(cv2.CAP_PROP_BRIGHTNESS,brt)
 #-------------------------  Streaming ------------------------
@@ -293,9 +292,9 @@ if __name__ == "__main__":
     # open a socket to receive lx parameters from remote client
     # put the socket in a loop and receive parameters or a finish commad
 
-    global exp
+    global exposure
     global gain
-    global thr
+    global threshold
 
     context = zmq.Context()
     command_socket = context.socket(zmq.SUB)
