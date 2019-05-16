@@ -102,7 +102,9 @@ http://doc.qt.io/archives/qt-4.8/qwidget.html
 How create code for PyQt Design
 C:\Python27\Lib\site-packages\PyQt4\pyuic4 -x C:\Python27\Projects\TelescopeClient-v2.ui -o C:\Python27\Projects\TelescopeClient-v2.py
 pyuic4 -x Test.ui Test.py
-C:\PythonProjects_Git\TelescopeControlSystem\venv\Lib\site-packages\PyQt4\pyuic4 C:\PythonProjects_Git\TelescopeControlSystem\SouceCode\UI_Client\TelescopeUserInterface.ui -o C:\PythonProjects_Git\TelescopeControlSystem\SouceCode\UI_Client\ui_TelControlWindow.py
+
+C:\PythonProjects_Git\TeleControl\venv\Lib\site-packages\PyQt4\pyuic4 C:\PythonProjects_Git\TeleControl\UI_Client\TelescopeUserInterface.ui -o C:\PythonProjects_Git\TeleControl\UI_Client\ui_TelControl
+Window.py
 
 
 Compile resource file
@@ -134,3 +136,10 @@ and I have to copy from my old project theese 3 files:
 /venv/lib/site-packages/sipdistutils.py
 
 For some reason they are not installed when the PyQt4-windows-whl package is installed
+
+I also have to copy
+qtdesigner, assistant, pyuic4.bat modules
+to /venv/lib/site-packages/PyQt4 directory
+
+And also the directory ui
+#####################################################################################################################
