@@ -292,7 +292,7 @@ def streamVideo(ip_R_PI):
         color = cv2.imdecode(npimg,1)
         cv2.imshow("COLOR", color)
         cv2.waitKey(1)
-    print("Recibio CLose streamVideo")
+    print("Recibio Close streamVideo")
     #footage_socket.close()
     #context.destroy(0)
     cv2.destroyAllWindows()
