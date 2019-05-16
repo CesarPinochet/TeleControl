@@ -70,8 +70,17 @@ def image_proc(img):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     return gray
 
-def lx(exp=0.05,gain=0,thr=70):
+# def lx(exp=0.05,gain=0,thr=70):
+def lx():
     global running
+
+    global exp
+    global gain
+    global thr
+
+    exp = exposure
+    thr = threshold
+
     #------------------- Prepare streaming-------------------------
     context = zmq.Context()
     footage_socket = context.socket(zmq.PUB)
@@ -283,6 +292,10 @@ if __name__ == "__main__":
     # open a socket to receive lx parameters from remote client
     # put the socket in a loop and receive parameters or a finish commad
 
+    global exp
+    global gain
+    global thr
+
     context = zmq.Context()
     command_socket = context.socket(zmq.SUB)
     command_socket.bind('tcp://*:5556')
@@ -300,7 +313,7 @@ if __name__ == "__main__":
             print("Str_Commnads = ",str_commands)
             ui_commands = json.loads(str_commands)
             exposure = ui_commands['exposure']
-            gain = ui_commands['gain']
+            gain_ = ui_commands['gain']
             threshold = ui_commands['threshold']
             print("Settings = ",exposure,gain,threshold)
         elif topic == 'stop':
@@ -319,7 +332,13 @@ if __name__ == "__main__":
             gain = int(ui_commands['gain'])
             threshold = int(ui_commands['threshold'])
 
+<<<<<<< HEAD
             print("Settings to lx = ",exposure,gain,threshold)
             command_thread = threading.Thread(target=lx, args=(exposure, gain, threshold))
+=======
+            print("Settings = ",exposure,gain,threshold)
+            # command_thread = threading.Thread(target=lx, args=(exposure, gain, threshold))
+            command_thread = threading.Thread(target=lx)
+>>>>>>> 535e60bcedd91ffef1a7619d1f34b128c554b6c1
             command_thread.start()
 
