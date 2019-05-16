@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\PythonProjects_Git\TelescopeControlSystem\SouceCode\UI_Client\TelescopeUserInterface.ui'
+# Form implementation generated from reading ui file 'C:\PythonProjects_Git\TeleControl\UI_Client\TelescopeUserInterface.ui'
 #
-# Created by: PyQt4 UI code generator 4.11.4
+# Created by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -248,7 +248,7 @@ class Ui_MainWindow(object):
         self.spinBox_Gain.setObjectName(_fromUtf8("spinBox_Gain"))
         self.gridLayout_CamaraViewer.addWidget(self.spinBox_Gain, 4, 1, 1, 1)
         self.doubleSpinBox_Exposure = QtGui.QDoubleSpinBox(self.centralwidget)
-        self.doubleSpinBox_Exposure.setMinimum(0.5)
+        self.doubleSpinBox_Exposure.setMinimum(0.04)
         self.doubleSpinBox_Exposure.setMaximum(300.0)
         self.doubleSpinBox_Exposure.setSingleStep(0.5)
         self.doubleSpinBox_Exposure.setObjectName(_fromUtf8("doubleSpinBox_Exposure"))
