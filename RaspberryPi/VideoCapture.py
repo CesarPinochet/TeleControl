@@ -118,8 +118,13 @@ def lx():
 
     if not cap.isOpened():  # check if we succeeded
         print("error opening video capture")
-        exit() 
+        exit()
 
+    # ----------- Define jpg_as_text  ----------
+    chk, frm = cap.read()
+    enc, buff = cv2.imencode('.jpg', frm)
+    jpg_as_text = base64.b64encode(buff)
+    # -------------------------------------------
     cap.set(cv2.CAP_PROP_GAIN, gain)
     #cap.set(cv2.CAP_PROP_SATURATION,0.0)
     #cap.set(cv2.CAP_PROP_CONTRAST,32.0)
@@ -177,7 +182,7 @@ def lx():
     
     good_frame = 0.0
     bad_frame = 0
-    jpg_as_text = []
+
 
     while running:
         #Before activate long exposure I have to set Auto exposure off
