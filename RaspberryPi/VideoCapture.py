@@ -78,7 +78,7 @@ def lx():
     global gain
     global threshold
 
-    exp = exposure
+    # exp = exposure
 
 
     #------------------- Prepare streaming-------------------------
@@ -168,7 +168,7 @@ def lx():
     n = 0
     pct=100
     ser.setRTS(True)
-    time.sleep(exp)
+    time.sleep(exposure)
     ser.setRTS(False)
     time.sleep(5.0/1000)
     check,frame = cap.read()
@@ -185,7 +185,7 @@ def lx():
           
         ser.setRTS(True)  # Start Exposure
         begin = time.time()    # Time in seconds
-        if cv2.waitKey(int(exp*1000)) & 0xFF == ord('q'):
+        if cv2.waitKey(int(exposure*1000)) & 0xFF == ord('q'):
             break
         ser.setRTS(False)  # Stop Exposure
         
