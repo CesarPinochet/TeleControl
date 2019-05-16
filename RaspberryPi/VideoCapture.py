@@ -333,13 +333,8 @@ if __name__ == "__main__":
             gain = int(ui_commands['gain'])
             threshold = int(ui_commands['threshold'])
 
-<<<<<<< HEAD
             print("Settings to lx = ",exposure,gain,threshold)
-            command_thread = threading.Thread(target=lx, args=(exposure, gain, threshold))
-=======
-            print("Settings = ",exposure,gain,threshold)
             # command_thread = threading.Thread(target=lx, args=(exposure, gain, threshold))
             command_thread = threading.Thread(target=lx)
->>>>>>> 535e60bcedd91ffef1a7619d1f34b128c554b6c1
             command_thread.start()
 
