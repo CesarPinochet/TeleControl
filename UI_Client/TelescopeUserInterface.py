@@ -37,6 +37,8 @@ class TelControlWindow(QMainWindow, Ui_MainWindow):
         self.commands_socket = context.socket(zmq.PUB)
         self.commands_socket.connect("tcp://%s:5556" % self.raspberryPiAddr)
         # --------------------------------------------------------------
+        self.img_fileName  = 'C:\Users\Papa\Desktop\Images\Capture'
+        self.wrt_activated = False
 
 # The closseEvent triggers when user try to the window
 # This overides method in Main Window
@@ -158,7 +160,7 @@ class TelControlWindow(QMainWindow, Ui_MainWindow):
             #         status['brightness'], status['pctGoodFrames']))
             window.lineEdit_Avg_Brightness.setText(str(status['avgLight']))
             window.lineEdit_Frame_Captured.setText(str(status['goodFrames']))
-            window.lineEdit_pct_GoodFrames.setText(str(status['pctGoodFrames']))
+            window.lineEdit_pct_GoodFrames.setText('{:.{prec}f}'.format(status['pctGoodFrames'],prec=2))
         print("Recibio Close - Video Update status")
         #video_Status_socket.close()
         #context.destroy(0)
@@ -197,6 +199,13 @@ class TelControlWindow(QMainWindow, Ui_MainWindow):
         return
 
     def copyToFile(self):
+        if self.radioButton_CopyToFile.isChecked():
+            self.wrt_activated = True
+            self.radioButton_CopyToFile.setText('Sending to file')
+            self.img_fileName = self.lineEdit_FileName.text()
+        else:
+            self.radioButton_CopyToFile.setText('Send Img.to File')
+            self.wrt_activated = False
         return
     def set_exposure(self):
         # --------------------------------------------------------------
@@ -275,12 +284,15 @@ class TelControlWindow(QMainWindow, Ui_MainWindow):
 def streamVideo(ip_R_PI):
     '''Connect to the remote camera using a Subscriber socket and display video.'''
     global running
+    global window
+
     context = zmq.Context()
     footage_socket = context.socket(zmq.SUB)
     footage_socket.connect("tcp://%s:5555" % ip_R_PI)
     topic = "frame"
     footage_socket.setsockopt(zmq.SUBSCRIBE, topic)
     print ("Inicio stream video")
+    imageCounter = 0
     while running:
         topic_frame = footage_socket.recv_multipart()
         #print ("Topic_rcv = %s" % topic_frame[0])
@@ -290,8 +302,18 @@ def streamVideo(ip_R_PI):
         # black_white = cv2.imdecode(npimg,0) # Estaba en 1
         # cv2.imshow("NoEq", black_white)
         color = cv2.imdecode(npimg,1)
+        imgRGB = cv2.cvtColor(color, cv2.COLOR_BGR2RGB)
         cv2.imshow("COLOR", color)
         cv2.waitKey(1)
+        # Use bmp because jpg is to heavy and the program crashes
+        file_name = window.img_fileName
+        write_img_activated = window.wrt_activated
+        wrt_error = False
+        if write_img_activated:
+            wrt_error = cv2.imwrite('{}{}.bmp'.format(file_name, imageCounter), imgRGB)
+            if not wrt_error:
+                print("Error writing image to file")
+        imageCounter += 1
     print("Recibio Close streamVideo")
     #footage_socket.close()
     #context.destroy(0)
@@ -303,6 +325,8 @@ if __name__ == '__main__':
     # The string must typically one of "windows", "motif", "cde", "plastique", "windowsxp", or "macintosh".
     # Style names are case insensitive.
     app.setStyle("windows")
+    global window
     window = TelControlWindow()
+
     window.show()
     app.exit(app.exec_())
